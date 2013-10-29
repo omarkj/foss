@@ -1,0 +1,18 @@
+%%% -*- mode: erlang -*-
+{application, foss,
+ [
+  {description, "TLS router"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications, [kernel
+                  ,stdlib
+                  ,ranch
+                  ,sni_parser
+                 ]},
+  {mod, { foss_app, []}},
+  {env, [{listening_port, 5000}
+         ,{listeners, 1024}
+         ,{routing_module, foss_random_routing}
+         ,{}
+        ]}
+ ]}.
