@@ -20,7 +20,7 @@ This server uses [`ranch`](https://github.com/extend/ranch) and
 You will need [`rebar`](https://github.com/rebar/rebar) in your `PATH`.
 
 ``` bash
-$ git clone ssh://git@bitbucket.org/omarkj/foss.git
+$ git clone https://github.com/omarkj/foss.git
 $ cd foss/
 $ rebar get-deps compile
 ```
