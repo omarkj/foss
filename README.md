@@ -6,12 +6,11 @@ This is a TLS router that uses
 [SNI](https://en.wikipedia.org/wiki/Server_Name_Indication) to route
 connections to the correct endpoint.
 
-The routing logic is kept pluggable, this is so this router can be
-built into a larger system. It comes with a simple routing logic built
-in, but it is not meant to be used in any production-grade systems.
+The routing logic is kept pluggable this is so this router can be
+built into a larger system.
 
-Keep in mind this server does *not* do TLS termination, that's left to
-the backend server.
+This server does *not* do TLS termination, that's left to the backend
+server thus providing end-to-end TLS.
 
 ## Dependencies
 This server uses [`ranch`](https://github.com/extend/ranch) and
@@ -27,12 +26,15 @@ $ rebar get-deps compile
 ```
 
 ### Running the tests
+
+You need `openssl s_client` to be able to run the tests. Erlang SSL
+doesn't support SNI so s_client has to be used to do the SSL test
+connection. Your OpenSSL installation needs to support TLS 1.0+.
+
 ``` bash
 $ rebar ct skip_deps=true
 ```
 
-## Next steps
-By writing a
-[ALPN](http://tools.ietf.org/html/draft-ietf-tls-applayerprotoneg-02)
-extension parser this server could be extended to route for many
-different protocols on the same port.
+## Licence
+
+See `LICENSE`. It's MIT.

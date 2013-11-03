@@ -11,8 +11,6 @@
                  ]},
   {mod, { foss_app, []}},
   {env, [{listening_port, 5000}
-         ,{listeners, 1024}
-         ,{routing_module, foss_random_routing}
-         ,{}
+         ,{acceptors, 1024}
         ]}
  ]}.
